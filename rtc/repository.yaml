@@ -3,7 +3,6 @@ SFMLJoystick2:
   git : https://github.com/rsdlab/SFMLJoystick2.git
   hash : 69d524a77fc24e0a5459a585aa12e46d6521293c
   repo_name : SFMLJoystick2
-
 SFMLJoystickToVelocity2:
   description : SFMLJoystick data convert to Velocity2D RTC for RTM2.0
   git : https://github.com/rsdlab/SFMLJoystickToVelocity2.git
