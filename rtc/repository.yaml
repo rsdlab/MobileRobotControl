@@ -1,0 +1,9 @@
+SFMLJoystick2:
+  description : 'Joystick Component using SFML Library RTC for RTM2.0'
+  git : https://github.com/rsdlab/SFMLJoystick2.git
+  repo_name : SFMLJoystick2
+
+SFMLJoystickToVelocity2:
+  description : 'SFMLJoystick data convert to Velocity2D RTC for RTM2.0'
+  git : https://github.com/rsdlab/SFMLJoystickToVelocity2.git
+  repo_name : SFMLJoystickToVelocity2
