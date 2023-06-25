@@ -4,7 +4,7 @@
 
 
 rosserializer(){
-    cd ~/workspace/MobileRobotControl/rtc/SFMLJoystickTovelocity2/build-linux/serializer/
+    cd ~/workspace/MobileRobotControl/rtc/SFMLJoystickToVelocity2/build-linux/serializer/
                 
     cp -rp TestSerializer.so ../../../../bin
             
