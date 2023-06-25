@@ -1,10 +1,10 @@
 SFMLJoystick2:
   description : Joystick Component using SFML Library RTC for RTM2.0
   git : https://github.com/rsdlab/SFMLJoystick2.git
-  # hash : 69d524a77fc24e0a5459a585aa12e46d6521293c
+  hash : c237624ae4672b86aa4a32f641773e76663d0118
   repo_name : SFMLJoystick2
 SFMLJoystickToVelocity2:
   description : SFMLJoystick data convert to Velocity2D RTC for RTM2.0
   git : https://github.com/rsdlab/SFMLJoystickToVelocity2.git
-  # hash : a697331a5fe857a93fa14fc181cb570fe97466e9
+  hash : d15de27a529524ee6128bbee03e433b5ffe670fc
   repo_name : SFMLJoystickToVelocity2
