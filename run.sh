@@ -4,30 +4,14 @@
 
 
 rosserializer(){
-    cd rtc/SFMLJoystickToVelocity2/build-linux/serializer/
+    cd ~/workspace/MobileRobotControl/rtc/SFMLJoystickTovelocity2/build-linux/serializer/
                 
-    #if [ -s "rtc/SFMLJoystickToVelocity2/build-linux/serializer/TestSerializer.so" ]; then
-         
     cp -rp TestSerializer.so ../../../../bin
             
-    cd ../../../../
+    cd ~/workspace/MobileRobotControl
 
 }
 
-
-system_run(){
-   
-   isCore=`ps -ef | grep "roscore" | grep -v grep | wc -l`
-   if [ $isCore != 1 ]; then #when not run roscore                    
-     roscore & #start roscore                                                      
-   fi
-   
-    gnome-terminal --tab --command "./mgr.py system run -v"                  
-            
-    sleep 5
-
-    
-}
 
 turtlebot_install(){
     echo "install ros package"
@@ -83,21 +67,19 @@ do
             echo "finish! ";;
 
         "2")
-            echo "system_build joytest"
+            echo "system build"
 
             sleep 1
 
             cd ~/catkin_ws/
 
-            #catkin build
-
-            #source devel/setup.bash
-
             echo "catkin_build"
 
-            cd 
-            
-            cd workspace/MobileRobotControl
+            catkin build turtlebot3 turtlebot3_simulations
+
+            source devel/setup.bash
+
+            cd ~/workspace/MobileRobotControl
             
             ./mgr.py rtc build all -v
             
@@ -106,15 +88,34 @@ do
             echo "finish! ";;
 
         "3")
-            export TURTLEBOT3_MODEL=burger
+            # export TURTLEBOT3_MODEL=burger
             
-            system_run
+            isCore=`ps -ef | grep "roscore" | grep -v grep | wc -l`
+            if [ $isCore != 1 ]; then #when not run roscore                    
+              gnome-terminal --tab --command "roscore"                                                     
+            fi
+            sleep 3
 
             gnome-terminal --tab --command "roslaunch turtlebot3_gazebo turtlebot3_world.launch"
  
-            gnome-terminal --tab --command "./mgr.py system run -v"            
+            gnome-terminal --tab --command "./mgr.py system run -v"    
+
+            echo "finish? (y)"
+            echo -n ">>"
+            read fin
+
+            #yを押したらプロセスIDを探してそのプロセスを停止させる
+            if [ fin=="y" ]; then
+                ross=`ps -e -o pid,cmd | grep rosmaster | grep -v grep | awk '{ print $1 }'`
+                kill $ross
+                rts=`ps -e -o pid,cmd | grep ./mgr.py | grep -v grep | awk '{ print $1 }'`
+                kill $rts         
             
-            echo "finish! ";;
+            echo "finish! "
+
+            fi
+            
+            ;;
 
 
         "4")
